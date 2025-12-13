@@ -1,6 +1,13 @@
 # Troubleshooting bd
 
+**Audience:** All users (end-users, developers, AI agents)
+
 Common issues and solutions for bd users.
+
+> **📚 Additional resources:**
+> - **[USER_GUIDE.md](USER_GUIDE.md)** - Complete guide for end-users
+> - **[FAQ.md](FAQ.md)** - Frequently asked questions
+> - **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Browse all documentation
 
 ## Table of Contents
 

@@ -1,6 +1,13 @@
 # Frequently Asked Questions
 
+**Audience:** All users (end-users, developers, AI agents)
+
 Common questions about bd (beads) and how to use it effectively.
+
+> **📚 For detailed guides:**
+> - **[USER_GUIDE.md](USER_GUIDE.md)** - Complete guide for end-users
+> - **[DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)** - Complete guide for contributors
+> - **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Browse all documentation
 
 ## General Questions
 

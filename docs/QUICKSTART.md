@@ -1,6 +1,13 @@
 # Beads Quickstart
 
+**Audience:** End-users wanting a quick introduction to Beads
+
 Get up and running with Beads in 2 minutes.
+
+> **📚 For comprehensive guides:**
+> - **[USER_GUIDE.md](USER_GUIDE.md)** - Complete guide for end-users
+> - **[DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)** - Complete guide for contributors
+> - **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Browse all documentation
 
 ## Installation
 

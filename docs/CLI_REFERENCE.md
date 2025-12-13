@@ -1,7 +1,14 @@
 # CLI Command Reference
 
-**For:** AI agents and developers using bd command-line interface  
+**Audience:** All users (end-users, developers, AI agents)  
 **Version:** 0.21.0+
+
+Complete reference for all `bd` commands.
+
+> **📚 For learning how to use Beads:**
+> - **[USER_GUIDE.md](USER_GUIDE.md)** - Complete guide with workflows and examples
+> - **[QUICKSTART.md](QUICKSTART.md)** - 2-minute tutorial
+> - **This document** - Comprehensive command reference
 
 ## Quick Navigation
 

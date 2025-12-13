@@ -1,6 +1,10 @@
 # Configuration System
 
+**Audience:** Power users and integration developers
+
 bd has two complementary configuration systems:
+
+> **📚 New to Beads?** Start with [USER_GUIDE.md](USER_GUIDE.md) for basics.
 
 1. **Tool-level configuration** (Viper): User preferences for tool behavior (flags, output format)
 2. **Project-level configuration** (`bd config`): Integration data and project-specific settings
