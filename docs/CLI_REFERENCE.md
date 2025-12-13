@@ -383,7 +383,7 @@ bd init --force
 - `--branch <name>`: Commit issue updates to separate branch (for protected main branches)
 - `--stealth`: Configure global settings for invisible local-only usage
 
-**See also:** [README.md - Step 1: Install](../README.md#step-1-install-humans---bd-init)
+**See also:** [README.md - Step 1: Install](../README.md#step-1-install-humans-bd-init)
 
 ### Onboard AI Agents - `bd onboard`
 
@@ -415,7 +415,7 @@ bd onboard --output .beads/BD_GUIDE.md
 4. Agent adds content to AGENTS.md and .github/copilot-instructions.md
 5. Agent removes the bootstrap instruction
 
-**See also:** [README.md - Step 2: Onboard AI Agents](../README.md#step-2-onboard-ai-agents---bd-onboard)
+**See also:** [README.md - Step 2: Onboard AI Agents](../README.md#step-2-onboard-ai-agents-bd-onboard)
 
 ### Setup Editor Integrations - `bd setup`
 
@@ -453,7 +453,7 @@ bd setup aider --remove           # Remove integration
 **Who uses it:** Humans or AI agents to enable editor-specific features.
 
 **See also:** 
-- [README.md - Step 3: Setup Editor Integrations](../README.md#step-3-setup-editor-integrations-optional---bd-setup)
+- [README.md - Step 3: Setup Editor Integrations](../README.md#step-3-setup-editor-integrations-optional-bd-setup)
 - [CLAUDE_INTEGRATION.md](CLAUDE_INTEGRATION.md)
 - [AIDER_INTEGRATION.md](AIDER_INTEGRATION.md)
 
