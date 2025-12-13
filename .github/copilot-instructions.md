@@ -39,6 +39,39 @@
 - Run `bd sync` at end of work sessions
 - Install git hooks: `bd hooks install` (ensures DB ↔ JSONL consistency)
 
+## Setup Commands
+
+There are **three setup commands** in bd:
+
+### 1. `bd init` - Initialize Project (Required)
+
+**When:** First time in a project, or if `.beads/` directory doesn't exist.
+
+```bash
+bd init --quiet  # Non-interactive, auto-installs hooks (for AI agents)
+```
+
+### 2. `bd onboard` - Generate AI Documentation (Recommended)
+
+**When:** After `bd init`, to integrate bd workflow into AGENTS.md.
+
+```bash
+bd onboard
+# Follow the instructions to update AGENTS.md
+```
+
+### 3. `bd setup` - AI Editor Integration (Optional)
+
+**When:** For automatic context injection in specific editors.
+
+```bash
+bd setup claude    # Claude Code hooks
+bd setup cursor    # Cursor IDE rules
+bd setup aider     # Aider configuration
+```
+
+**See [docs/SETUP.md](../docs/SETUP.md) for detailed explanation.**
+
 ## Issue Tracking with bd
 
 **CRITICAL**: This project uses **bd** for ALL task tracking. Do NOT create markdown TODO lists.
