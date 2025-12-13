@@ -1,5 +1,14 @@
 # Instructions for AI Agents Working on Beads
 
+> **Audience**: AI agents contributing to the **beads project itself**
+>
+> **Not this file?**
+> - **Using beads in your own project?** See [docs/QUICKSTART.md](docs/QUICKSTART.md)
+> - **Human wanting to install beads?** See [README.md](README.md) or [docs/INSTALLING.md](docs/INSTALLING.md)
+> - **Looking for bd command reference?** See [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md)
+>
+> **How agent instructions work in user projects**: When users run `bd init` + `bd setup claude` (or `bd onboard`), beads automatically injects relevant workflow context into their AI editor. Users don't need to copy this file.
+
 > **📖 For detailed development instructions**, see [AGENT_INSTRUCTIONS.md](AGENT_INSTRUCTIONS.md)
 >
 > This file provides a quick overview and reference. For in-depth operational details (development, testing, releases, git workflow), consult the detailed instructions.
