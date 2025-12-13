@@ -27,7 +27,15 @@ var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Initialize bd in the current directory",
 	Long: `Initialize bd in the current directory by creating a .beads/ directory
-and database file. Optionally specify a custom issue prefix.
+and database file. This is the FIRST STEP in setting up beads for any project.
+
+USAGE:
+  • Humans: Run 'bd init' interactively (with prompts)
+  • AI Agents: Run 'bd init --quiet' (non-interactive, auto-installs hooks)
+
+AFTER INITIALIZATION:
+  • For AI agent integration: Run 'bd onboard' to get instructions
+  • For AI editor integration: Run 'bd setup claude/cursor/aider' (optional)
 
 With --no-db: creates .beads/ directory and issues.jsonl file instead of SQLite database.
 

@@ -431,15 +431,22 @@ func generateBDGuide(outputPath string) error {
 
 var onboardCmd = &cobra.Command{
 	Use:   "onboard",
-	Short: "Display instructions for configuring AGENTS.md",
-	Long: `Display instructions for AI agents to configure AGENTS.md with bd workflow.
+	Short: "Generate AI agent documentation for bd workflow",
+	Long: `Generate instructions for AI agents to integrate bd into project documentation.
 
-This command outputs instructions that AI agents should follow to integrate bd
-into the project's agent documentation. The agent will intelligently merge the
-content into AGENTS.md and update CLAUDE.md if present.
+WHEN TO USE THIS:
+  • AFTER running 'bd init' to set up the project
+  • To integrate bd workflow into AGENTS.md for AI agent guidance
+  • To generate or update BD_GUIDE.md after upgrading bd
 
-Use --output to generate a canonical BD_GUIDE.md file instead:
-  bd onboard --output .beads/BD_GUIDE.md
+USAGE:
+  bd onboard                              # Output integration instructions
+  bd onboard --output .beads/BD_GUIDE.md  # Generate canonical guide file
+
+The AI agent will follow the instructions to:
+  1. Add bd workflow content to AGENTS.md
+  2. Create .github/copilot-instructions.md (for GitHub Copilot)
+  3. Update CLAUDE.md if present
 
 The generated BD_GUIDE.md is version-stamped and auto-generated - it should
 never be manually edited. This separates bd-specific instructions (which change

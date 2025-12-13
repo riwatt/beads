@@ -12,6 +12,69 @@
 - [Advanced Operations](#advanced-operations)
 - [Database Management](#database-management)
 
+## Setup & Initialization
+
+### Initialize Project
+
+```bash
+# Initialize bd in current directory (interactive for humans)
+bd init
+
+# Initialize non-interactively (for AI agents)
+bd init --quiet
+
+# Special workflows
+bd init --contributor             # OSS contributor (fork workflow)
+bd init --team                    # Team member (branch workflow)
+bd init --branch beads-metadata   # Protected main branch
+bd init --stealth                 # Personal use (invisible to repo)
+
+# Custom prefix
+bd init --prefix myproject
+
+# Skip optional components
+bd init --skip-hooks              # Skip git hooks installation
+bd init --skip-merge-driver       # Skip merge driver configuration
+```
+
+**See [SETUP.md](SETUP.md) for detailed explanation of the setup workflow.**
+
+### Generate AI Documentation
+
+```bash
+# Output instructions for integrating bd into AGENTS.md
+bd onboard
+
+# Generate canonical BD_GUIDE.md file
+bd onboard --output .beads/BD_GUIDE.md
+```
+
+**When to run:** After `bd init` to integrate bd workflow into project documentation.
+
+### Setup AI Editor Integration
+
+```bash
+# Claude Code integration
+bd setup claude                   # Install globally (recommended)
+bd setup claude --project         # Install for this project only
+bd setup claude --check           # Check if installed
+bd setup claude --remove          # Remove hooks
+
+# Cursor IDE integration
+bd setup cursor                   # Install Cursor rules
+bd setup cursor --check           # Check if installed
+bd setup cursor --remove          # Remove rules
+
+# Aider integration
+bd setup aider                    # Install Aider config
+bd setup aider --check            # Check if installed
+bd setup aider --remove           # Remove config
+```
+
+**When to run:** After `bd init` and `bd onboard` for automatic context injection (optional).
+
+**See [SETUP.md](SETUP.md) for when to use each command.**
+
 ## Basic Operations
 
 ### Check Status
