@@ -146,28 +146,32 @@ bd init --team
 bd init --branch beads-metadata
 ```
 
-**Step 2: Setup your AI editor integration:**
+**Step 2: Choose your setup approach:**
+
+**Option A - Automatic hooks (recommended for Claude Code):**
 ```bash
-# Claude Code (recommended - installs globally)
-bd setup claude
+bd setup claude       # Installs hooks that auto-inject bd context
+```
+This installs SessionStart hooks that call `bd prime` to inject bd workflow context automatically. Your agent will know about bd without needing AGENTS.md.
 
-# Cursor IDE
-bd setup cursor
+**Option B - Documentation-based (works with any agent):**
+```bash
+# Add this to your AGENTS.md:
+echo -e "\nBEFORE ANYTHING ELSE: run 'bd onboard' and follow the instructions" >> AGENTS.md
+```
+Next time your agent starts, it will run `bd onboard` and add bd instructions to AGENTS.md. This approach is more transparent and works with any AI tool.
 
-# Aider
-bd setup aider
+**Option C - Both (belt and suspenders):**
+```bash
+bd setup claude                                    # Auto context injection
+bd onboard --output .beads/BD_GUIDE.md            # Generate documentation
+# Then reference BD_GUIDE.md from your AGENTS.md
 ```
 
-**That's it!** Your AI agent will now automatically use bd for issue tracking. No need to edit AGENTS.md manually.
-
-**What happens:**
-- `bd init` creates the `.beads/` directory, database, and **git hooks** (for automatic database sync)
-- `bd setup` installs **editor hooks** (for injecting bd context into your AI agent)
-- Next time your agent starts, it knows how to use bd
-
-> **Note:** `bd init` installs git hooks (pre-commit, post-merge) for database syncing. `bd setup` installs editor-specific hooks/rules for AI context injection. These are complementary.
-
-**Alternative (manual setup):** If you prefer not to use `bd setup`, you can still use `bd onboard` to get instructions for manual AGENTS.md configuration.
+**What `bd init` creates:**
+- `.beads/` directory with database and JSONL files
+- **Git hooks** (pre-commit, post-merge) for automatic database sync
+- Git merge driver for intelligent JSONL conflict resolution
 
 **Protected branches?** If your `main` branch is protected, use `bd init --branch beads-metadata` to commit issue updates to a separate branch. See [docs/PROTECTED_BRANCHES.md](docs/PROTECTED_BRANCHES.md) for details.
 
