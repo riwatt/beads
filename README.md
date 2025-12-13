@@ -87,6 +87,18 @@ go build -o bd ./cmd/bd
 
 **macOS/Windows:** No special requirements.
 
+## Core Commands
+
+Beads has three main setup commands, each with a specific purpose and audience:
+
+| Command | Audience | Purpose |
+|---------|----------|---------|
+| `bd init` | Humans (or agents with `--quiet`) | Initialize beads database in a project |
+| `bd onboard` | AI Agents | Generate integration instructions for AGENTS.md |
+| `bd setup` | Optional | Configure editor-specific integrations (Claude/Cursor/Aider) |
+
+**Quick setup flow:** Human runs `bd init` → adds onboard instruction to AGENTS.md → Agent runs `bd onboard` → (Optional) `bd setup` for editor features.
+
 ## Installation
 
 **npm (Node.js environments, Claude Code for Web):**

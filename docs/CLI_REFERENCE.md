@@ -383,7 +383,7 @@ bd init --force
 - `--branch <name>`: Commit issue updates to separate branch (for protected main branches)
 - `--stealth`: Configure global settings for invisible local-only usage
 
-**See also:** [README.md - Quick Start](../README.md#quick-start)
+**See also:** [README.md - Step 1: Install](../README.md#step-1-install-humans---bd-init)
 
 ### Onboard AI Agents - `bd onboard`
 
@@ -454,8 +454,8 @@ bd setup aider --remove           # Remove integration
 
 **See also:** 
 - [README.md - Step 3: Setup Editor Integrations](../README.md#step-3-setup-editor-integrations-optional---bd-setup)
-- [docs/CLAUDE_INTEGRATION.md](CLAUDE_INTEGRATION.md)
-- [docs/AIDER_INTEGRATION.md](AIDER_INTEGRATION.md)
+- [CLAUDE_INTEGRATION.md](CLAUDE_INTEGRATION.md)
+- [AIDER_INTEGRATION.md](AIDER_INTEGRATION.md)
 
 ### Quickstart Guide - `bd quickstart`
 
