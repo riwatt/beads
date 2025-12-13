@@ -13,6 +13,19 @@
 
 **Give your coding agent a memory upgrade**
 
+---
+
+## 📚 Documentation Guide
+
+**New to Beads?** Find the right documentation for your needs:
+
+- **👤 [Using Beads in your projects](docs/USER_GUIDE.md)** - Complete guide for end-users
+- **🔧 [Contributing to Beads](docs/DEVELOPER_GUIDE.md)** - Development setup and guidelines
+- **🤖 [AI assistant integration](AGENTS.md)** - Instructions for AI coding assistants
+- **📖 [Full documentation index](docs/DOCUMENTATION_INDEX.md)** - Browse all documentation
+
+---
+
 > ## 🎉 **v0.20.1: Multi-Worker Support Unlocked!** 🎉
 >
 > **Hash-based IDs eliminate merge conflicts and collision issues!**
@@ -817,22 +830,42 @@ For advanced usage, see:
 
 ## Documentation
 
-- **[README.md](README.md)** - You are here! Core features and quick start
-- **[docs/INSTALLING.md](docs/INSTALLING.md)** - Complete installation guide for all platforms
-- **[docs/QUICKSTART.md](docs/QUICKSTART.md)** - Interactive tutorial (`bd quickstart`)
-- **[docs/AGENT_MAIL_QUICKSTART.md](docs/AGENT_MAIL_QUICKSTART.md)** - 5-minute Agent Mail setup guide
-- **[docs/AGENT_MAIL.md](docs/AGENT_MAIL.md)** - Complete Agent Mail integration guide
-- **[docs/MULTI_REPO_MIGRATION.md](docs/MULTI_REPO_MIGRATION.md)** - Multi-repo workflow guide (OSS, teams, multi-phase)
-- **[docs/MULTI_REPO_AGENTS.md](docs/MULTI_REPO_AGENTS.md)** - Multi-repo patterns for AI agents
+### Getting Started by Audience
+
+**👤 End-Users (Using Beads for issue tracking):**
+- **[docs/USER_GUIDE.md](docs/USER_GUIDE.md)** - Complete guide to using Beads
+- **[docs/INSTALLING.md](docs/INSTALLING.md)** - Installation for all platforms
+- **[docs/QUICKSTART.md](docs/QUICKSTART.md)** - 2-minute tutorial
+- **[docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md)** - Complete command reference
 - **[docs/FAQ.md](docs/FAQ.md)** - Frequently asked questions
-- **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** - Common issues
+
+**🔧 Developers (Contributing to Beads project):**
+- **[docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)** - Complete development guide
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
+- **[AGENT_INSTRUCTIONS.md](AGENT_INSTRUCTIONS.md)** - Detailed dev procedures
+- **[docs/TESTING.md](docs/TESTING.md)** - Testing infrastructure
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - System design
+
+**🤖 AI Assistants (Integration with coding agents):**
+- **[AGENTS.md](AGENTS.md)** - Complete AI agent instructions
+- **[.github/copilot-instructions.md](.github/copilot-instructions.md)** - GitHub Copilot guide
+- **[docs/CLAUDE_INTEGRATION.md](docs/CLAUDE_INTEGRATION.md)** - Claude AI integration
+- **[integrations/beads-mcp/README.md](integrations/beads-mcp/README.md)** - MCP server
+
+**📖 Browse All Documentation:**
+- **[docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)** - Complete documentation index
+
+### Specialized Topics
+
 - **[docs/ADVANCED.md](docs/ADVANCED.md)** - Advanced features and use cases
 - **[docs/LABELS.md](docs/LABELS.md)** - Complete label system guide
 - **[docs/CONFIG.md](docs/CONFIG.md)** - Configuration system
 - **[docs/EXTENDING.md](docs/EXTENDING.md)** - Database extension patterns
-- **[docs/ADVANCED.md](docs/ADVANCED.md)** - JSONL format analysis
-- **[docs/PLUGIN.md](docs/PLUGIN.md)** - Claude Code plugin documentation
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines
+- **[docs/MULTI_REPO_MIGRATION.md](docs/MULTI_REPO_MIGRATION.md)** - Multi-repo workflows
+- **[docs/PROTECTED_BRANCHES.md](docs/PROTECTED_BRANCHES.md)** - Protected branch workflows
+- **[docs/AGENT_MAIL.md](docs/AGENT_MAIL.md)** - Multi-agent coordination (optional)
+- **[docs/PLUGIN.md](docs/PLUGIN.md)** - Claude Code plugin
 - **[SECURITY.md](SECURITY.md)** - Security policy
 
 ## Community & Ecosystem
@@ -849,6 +882,9 @@ Have you built something cool with bd? [Open an issue](https://github.com/stevey
 
 ## Development
 
+**Want to contribute to Beads?** See [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md) for complete setup and contribution guidelines.
+
+**Quick commands:**
 ```bash
 # Run tests
 go test ./...
@@ -864,7 +900,7 @@ go build -o bd ./cmd/bd
 ./scripts/bump-version.sh 0.9.3 --commit  # Update and auto-commit
 ```
 
-See [scripts/README.md](scripts/README.md) for more development scripts.
+See [scripts/README.md](scripts/README.md) for more development scripts and [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## License
 
