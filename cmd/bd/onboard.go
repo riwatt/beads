@@ -431,19 +431,30 @@ func generateBDGuide(outputPath string) error {
 
 var onboardCmd = &cobra.Command{
 	Use:   "onboard",
-	Short: "Display instructions for configuring AGENTS.md",
-	Long: `Display instructions for AI agents to configure AGENTS.md with bd workflow.
+	Short: "Generate workflow instructions for AI agents",
+	Long: `Generate bd workflow instructions for AI agents to follow.
 
-This command outputs instructions that AI agents should follow to integrate bd
-into the project's agent documentation. The agent will intelligently merge the
-content into AGENTS.md and update CLAUDE.md if present.
+This command is designed for AI AGENTS, not humans. It outputs instructions
+that help AI agents understand how to use bd for issue tracking in this project.
 
-Use --output to generate a canonical BD_GUIDE.md file instead:
-  bd onboard --output .beads/BD_GUIDE.md
+WHEN TO USE:
+  • AI agent starting work on a bd-enabled project
+  • Setting up agent documentation (AGENTS.md, CLAUDE.md)
+  • Generating a canonical BD_GUIDE.md reference file
 
-The generated BD_GUIDE.md is version-stamped and auto-generated - it should
-never be manually edited. This separates bd-specific instructions (which change
-with bd upgrades) from project-specific instructions in AGENTS.md.`,
+WHAT IT DOES:
+  • Outputs step-by-step instructions for AI agents to follow
+  • Guides agents to update AGENTS.md and CLAUDE.md with bd workflow
+  • With --output: generates a version-stamped BD_GUIDE.md file
+
+RELATED COMMANDS:
+  • bd init            - Initialize project infrastructure (run first)
+  • bd setup <editor>  - Configure editor integration (Claude/Cursor/Aider)
+  • bd prime           - Inject compact workflow context (used by hooks)
+
+EXAMPLES:
+  bd onboard                              # Display agent instructions
+  bd onboard --output .beads/BD_GUIDE.md  # Generate reference file`,
 	Run: func(cmd *cobra.Command, args []string) {
 		outputPath, _ := cmd.Flags().GetString("output")
 

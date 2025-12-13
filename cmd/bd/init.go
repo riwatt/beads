@@ -25,16 +25,26 @@ import (
 
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: "Initialize bd in the current directory",
+	Short: "Initialize bd project infrastructure (run once per project)",
 	Long: `Initialize bd in the current directory by creating a .beads/ directory
-and database file. Optionally specify a custom issue prefix.
+and database file. This is a one-time setup command for project infrastructure.
 
-With --no-db: creates .beads/ directory and issues.jsonl file instead of SQLite database.
+WHEN TO USE:
+  • First time setting up bd in a project
+  • After cloning a repo that uses bd (auto-imports existing issues)
+  • Creating a new project that will use bd for issue tracking
 
-With --stealth: configures global git settings for invisible beads usage:
-  • Global gitignore to prevent beads files from being committed
-  • Claude Code settings with bd onboard instruction
-  Perfect for personal use without affecting repo collaborators.`,
+RELATED COMMANDS:
+  • bd setup <editor>  - Configure editor integration (Claude/Cursor/Aider)
+  • bd onboard         - Generate instructions for AI agents
+
+OPTIONS:
+  --no-db: creates .beads/ directory and issues.jsonl file instead of SQLite database.
+
+  --stealth: configures global git settings for invisible beads usage:
+    • Global gitignore to prevent beads files from being committed
+    • Claude Code settings with bd onboard instruction
+    Perfect for personal use without affecting repo collaborators.`,
 	Run: func(cmd *cobra.Command, _ []string) {
 		prefix, _ := cmd.Flags().GetString("prefix")
 		quiet, _ := cmd.Flags().GetBool("quiet")

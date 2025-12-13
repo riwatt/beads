@@ -51,6 +51,37 @@ bd info  # Shows warnings if hooks are outdated
 
 **Related:** See GitHub Discussion #239 for background on agent upgrade workflows.
 
+## Setup Commands: init vs setup vs onboard
+
+bd has three setup-related commands with distinct purposes:
+
+| Command | Purpose | When to Run | Who Runs It |
+|---------|---------|-------------|-------------|
+| `bd init` | Create project infrastructure (.beads/, database, git hooks) | Once per project | Human or AI |
+| `bd setup <editor>` | Configure editor integration (Claude/Cursor/Aider) | After init, per editor | Human or AI |
+| `bd onboard` | Generate workflow instructions for AI agents | When AI needs to learn bd | AI agents |
+
+**Typical workflow:**
+
+```bash
+# 1. Initialize project (one-time)
+bd init --quiet
+
+# 2. Configure your editor (optional, one-time per editor)
+bd setup claude              # For Claude Code
+bd setup cursor              # For Cursor IDE
+bd setup aider               # For Aider
+
+# 3. AI agent learns the workflow (as needed)
+bd onboard                   # Agent follows the output instructions
+```
+
+**Key distinctions:**
+
+- **`bd init`** creates the `.beads/` directory, database, and git hooks. This is project infrastructure that all users share.
+- **`bd setup`** installs editor-specific configuration (hooks, rules files). Different editors need different setup.
+- **`bd onboard`** outputs instructions for AI agents to follow - it doesn't modify files directly, it tells the agent what to do.
+
 ## Human Setup vs Agent Usage
 
 **IMPORTANT:** If you need to initialize bd, use the `--quiet` flag:

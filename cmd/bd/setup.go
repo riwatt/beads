@@ -14,8 +14,26 @@ var (
 
 var setupCmd = &cobra.Command{
 	Use:   "setup",
-	Short: "Setup integration with AI editors",
-	Long:  `Setup integration files for AI editors like Claude Code, Cursor, and Aider.`,
+	Short: "Configure editor-specific integrations (run after bd init)",
+	Long: `Configure editor-specific hooks and settings for AI code editors.
+
+This command installs integration files that help your editor work with bd.
+Run this AFTER 'bd init' has set up the project infrastructure.
+
+SUPPORTED EDITORS:
+  bd setup claude    - Install Claude Code hooks (SessionStart, PreCompact)
+  bd setup cursor    - Create Cursor IDE rules (.cursor/rules/beads.mdc)
+  bd setup aider     - Create Aider config (.aider.conf.yml)
+
+RELATED COMMANDS:
+  • bd init     - Initialize project infrastructure (run first)
+  • bd onboard  - Generate instructions for AI agents
+
+EXAMPLES:
+  bd setup claude              # Install globally
+  bd setup claude --project    # Install for this project only
+  bd setup cursor              # Create Cursor rules
+  bd setup aider               # Create Aider config`,
 }
 
 var setupCursorCmd = &cobra.Command{
