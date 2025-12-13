@@ -10,6 +10,7 @@
 - [Dependencies & Labels](#dependencies--labels)
 - [Filtering & Search](#filtering--search)
 - [Advanced Operations](#advanced-operations)
+- [Setup & Initialization](#setup--initialization)
 - [Database Management](#database-management)
 
 ## Basic Operations
@@ -330,6 +331,149 @@ bd restore <id>  # View full history at time of compaction
 bd rename-prefix kw- --dry-run  # Preview changes
 bd rename-prefix kw- --json     # Apply rename
 ```
+
+## Setup & Initialization
+
+### Initialize Database - `bd init`
+
+Initialize beads in a project directory:
+
+```bash
+# Basic initialization (interactive prompts)
+bd init
+
+# Non-interactive (for AI agents)
+bd init --quiet
+
+# Custom issue prefix
+bd init --prefix myapp
+
+# Team workflows
+bd init --team                    # Branch-based team workflow
+bd init --contributor             # Fork-based OSS contributor workflow
+bd init --branch beads-metadata   # Protected branch workflow
+
+# Stealth mode (invisible to collaborators)
+bd init --stealth
+
+# Skip optional setup steps
+bd init --skip-hooks              # Skip git hooks installation
+bd init --skip-merge-driver       # Skip merge driver configuration
+
+# Force re-initialization (CAUTION: may cause data loss)
+bd init --force
+```
+
+**What it does:**
+- Creates `.beads/` directory with SQLite database
+- Imports existing issues from git (if `.beads/issues.jsonl` exists)
+- Prompts to install git hooks (unless `--quiet` or `--skip-hooks`)
+- Prompts to configure git merge driver (unless `--quiet` or `--skip-merge-driver`)
+- Auto-starts daemon for background sync
+- Creates configuration files and README
+
+**When to use:**
+- **Humans**: First time setting up beads in a project (interactive mode)
+- **AI agents**: Use `bd init --quiet` for non-interactive setup
+- **New clones**: Run `bd init` to import existing issues from JSONL
+
+**Workflow flags:**
+- `--team`: Creates branch workflow for team collaboration (commit to feature branches)
+- `--contributor`: Creates fork workflow for OSS contributions (use separate planning repo)
+- `--branch <name>`: Commit issue updates to separate branch (for protected main branches)
+- `--stealth`: Configure global settings for invisible local-only usage
+
+**See also:** [README.md - Quick Start](../README.md#quick-start)
+
+### Onboard AI Agents - `bd onboard`
+
+Generate integration instructions for AI agents:
+
+```bash
+# Display onboarding instructions (for agent to read and follow)
+bd onboard
+
+# Generate BD_GUIDE.md file
+bd onboard --output .beads/BD_GUIDE.md
+```
+
+**What it does:**
+- Generates instructions for AI agents to integrate bd into project documentation
+- Provides content to add to `AGENTS.md` with bd workflow
+- Provides content to create `.github/copilot-instructions.md` for GitHub Copilot
+- Optionally creates `.beads/BD_GUIDE.md` with `--output` flag
+
+**When to use:**
+- After `bd init` when AI agent first joins a project
+- When upgrading bd to regenerate latest workflow documentation
+- To create/update BD_GUIDE.md with latest bd instructions
+
+**Typical workflow:**
+1. Human runs `bd init` to set up database
+2. Human adds "run 'bd onboard' and follow instructions" to AGENTS.md
+3. Agent runs `bd onboard` and sees instructions
+4. Agent adds content to AGENTS.md and .github/copilot-instructions.md
+5. Agent removes the bootstrap instruction
+
+**See also:** [README.md - Step 2: Onboard AI Agents](../README.md#step-2-onboard-ai-agents---bd-onboard)
+
+### Setup Editor Integrations - `bd setup`
+
+Configure beads integration with AI editors:
+
+```bash
+# Setup Claude Code (SessionStart/PreCompact hooks)
+bd setup claude
+bd setup claude --project         # Project-local (not global)
+bd setup claude --stealth         # Use 'bd prime --stealth'
+bd setup claude --check           # Check installation status
+bd setup claude --remove          # Remove integration
+
+# Setup Cursor IDE (rules file)
+bd setup cursor
+bd setup cursor --check           # Check installation status
+bd setup cursor --remove          # Remove integration
+
+# Setup Aider (config file)
+bd setup aider
+bd setup aider --check            # Check installation status
+bd setup aider --remove           # Remove integration
+```
+
+**What it does:**
+- **Claude Code**: Installs hooks in `~/.claude/settings.json` (or `.claude/settings.local.json` for project-local) that call `bd prime` on SessionStart and PreCompact events
+- **Cursor**: Creates `.cursor/rules/beads.mdc` with bd workflow rules for Cursor IDE
+- **Aider**: Creates `.aider.conf.yml` with bd workflow instructions
+
+**When to use:**
+- **Optional**: After `bd init` if you want editor-specific features
+- **Not required**: Core bd workflow works without any editor integration
+- **Benefits**: Automatic context injection, editor shortcuts, enhanced UX
+
+**Who uses it:** Humans or AI agents to enable editor-specific features.
+
+**See also:** 
+- [README.md - Step 3: Setup Editor Integrations](../README.md#step-3-setup-editor-integrations-optional---bd-setup)
+- [docs/CLAUDE_INTEGRATION.md](CLAUDE_INTEGRATION.md)
+- [docs/AIDER_INTEGRATION.md](AIDER_INTEGRATION.md)
+
+### Quickstart Guide - `bd quickstart`
+
+Display interactive quick start guide:
+
+```bash
+bd quickstart
+```
+
+**What it does:**
+- Shows a colorful terminal guide with common bd workflows
+- Covers initialization, creating issues, dependencies, ready work, and more
+- Designed for humans learning bd, or AI agents wanting a quick reference
+
+**When to use:**
+- First time using bd to see examples
+- As a quick reference for common commands
+- To understand bd's core concepts and workflows
 
 ## Database Management
 

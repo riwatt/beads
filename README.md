@@ -127,11 +127,14 @@ For full, platform-specific instructions (Windows, Arch Linux, manual builds, ID
 
 ## Quick Start
 
-### For Humans
+### Three-Step Setup
 
 Beads is designed for **AI coding agents** to use on your behalf. Setup takes 30 seconds:
 
-**You run this once (humans only):**
+#### Step 1: Install (Humans) - `bd init`
+
+Initialize the beads database in your project:
+
 ```bash
 # In your project root:
 bd init
@@ -145,28 +148,84 @@ bd init --team
 # For protected branches (GitHub/GitLab):
 bd init --branch beads-metadata
 
-# bd will:
-# - Create .beads/ directory with database
-# - Import existing issues from git (if any)
-# - Prompt to install git hooks (recommended: say yes)
-# - Prompt to configure git merge driver (recommended: say yes)
-# - Auto-start daemon for sync
-
-# Then tell your agent about bd:
-echo -e "\nBEFORE ANYTHING ELSE: run 'bd onboard' and follow the instructions" >> AGENTS.md
+# For invisible usage (no commits):
+bd init --stealth
 ```
+
+**What `bd init` does:**
+- Creates `.beads/` directory with SQLite database
+- Imports existing issues from git (if any)
+- Prompts to install git hooks (recommended: say yes)
+- Prompts to configure git merge driver (recommended: say yes)
+- Auto-starts daemon for background sync
+
+**Who uses it:** Humans for initial setup, or AI agents with `--quiet` flag for non-interactive initialization.
 
 **Protected branches?** If your `main` branch is protected, use `bd init --branch beads-metadata` to commit issue updates to a separate branch. See [docs/PROTECTED_BRANCHES.md](docs/PROTECTED_BRANCHES.md) for details.
 
-**Your agent does the rest:** Next time your agent starts, it will:
+**For new repo clones:** Run `bd init` to import existing issues from `.beads/issues.jsonl` automatically.
+
+#### Step 2: Onboard AI Agents - `bd onboard`
+
+Tell your AI agent to integrate beads into the project documentation:
+
+```bash
+# Add this to AGENTS.md for your agent to see:
+echo -e "\nBEFORE ANYTHING ELSE: run 'bd onboard' and follow the instructions" >> AGENTS.md
+```
+
+**What `bd onboard` does:**
+- Generates instructions for AI agents
+- Provides content to add to `AGENTS.md` with bd workflow
+- Provides content to create `.github/copilot-instructions.md` for GitHub Copilot
+- Optionally generates `.beads/BD_GUIDE.md` with `--output` flag
+
+**Who uses it:** AI agents when first joining a project to learn the bd workflow.
+
+**Your agent will:**
 1. Run `bd onboard` and receive integration instructions
-2. Add bd workflow documentation to AGENTS.md
-3. Update CLAUDE.md with a note (if present)
-4. Remove the bootstrap instruction
+2. Add bd workflow documentation to `AGENTS.md`
+3. Create `.github/copilot-instructions.md` for GitHub Copilot
+4. Update `CLAUDE.md` with a note (if present)
+5. Remove the bootstrap instruction
 
-**For agents setting up repos:** Use `bd init --quiet` for non-interactive setup (auto-installs git hooks and merge driver, no prompts).
+**For agents setting up repos from scratch:** Use `bd init --quiet` for non-interactive setup (auto-installs git hooks and merge driver, no prompts).
 
-**For new repo clones:** Run `bd init` (or `bd init --quiet` for agents) to import existing issues from `.beads/issues.jsonl` automatically.
+#### Step 3: Setup Editor Integrations (Optional) - `bd setup`
+
+Configure beads to work with your AI editor for enhanced workflow integration:
+
+```bash
+# Setup Claude Code integration (hooks for SessionStart/PreCompact)
+bd setup claude
+
+# Setup Cursor IDE integration (rules file)
+bd setup cursor
+
+# Setup Aider integration (config file)
+bd setup aider
+
+# Check if integration is installed
+bd setup claude --check
+bd setup cursor --check
+bd setup aider --check
+
+# Remove integration
+bd setup claude --remove
+bd setup cursor --remove
+bd setup aider --remove
+```
+
+**What `bd setup` does:**
+- **Claude Code**: Installs hooks that call `bd prime` on SessionStart and PreCompact events to inject bd workflow context
+- **Cursor**: Creates `.cursor/rules/beads.mdc` with bd workflow rules
+- **Aider**: Creates `.aider.conf.yml` with bd workflow configuration
+
+**Who uses it:** Humans or AI agents to enable editor-specific features. This is completely optional - the core bd workflow works without any editor integration.
+
+**When to use it:** After `bd init` if you want your editor to automatically remind your AI about the bd workflow, or to enable editor-specific shortcuts.
+
+---
 
 **Git merge driver:** During `bd init`, beads configures git to use `bd merge` for intelligent JSONL merging. This prevents conflicts when multiple branches modify issues. Skip with `--skip-merge-driver` if needed. To configure manually later:
 ```bash
@@ -224,6 +283,8 @@ bd init --stealth
 
 **How it works:** The global git configuration handles beads merging automatically, while the global gitignore ensures beads files never get committed to shared repos. Your AI agents get the onboard instruction automatically without exposing beads to other repo collaborators.
 
+### Monitoring Issues (Humans)
+
 Most tasks will be created and managed by agents during conversations. You can check on things with:
 
 ```bash
@@ -233,7 +294,9 @@ bd ready                 # See what's ready to work on
 bd dep tree <issue-id>   # Visualize dependencies
 ```
 
-### For AI Agents
+### Using Beads (AI Agents)
+
+After your human has run `bd init` and you've run `bd onboard`, you're ready to use beads!
 
 Run the interactive guide to learn the full workflow:
 
@@ -241,7 +304,7 @@ Run the interactive guide to learn the full workflow:
 bd quickstart
 ```
 
-Quick reference for agent workflows:
+Quick reference for daily agent workflows:
 
 ```bash
 # Find ready work
