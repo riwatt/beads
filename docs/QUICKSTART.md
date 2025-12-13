@@ -1,14 +1,32 @@
 # Beads Quickstart
 
+> **Audience**: End users who want to add beads to their own project
+>
+> **Not this guide?**
+> - Contributing to beads itself? See [CONTRIBUTING.md](../CONTRIBUTING.md)
+> - AI agent working on beads repo? See [AGENTS.md](../AGENTS.md)
+
 Get up and running with Beads in 2 minutes.
 
 ## Installation
 
+**Choose one method:**
+
 ```bash
-cd ~/src/beads
-go build -o bd ./cmd/bd
-./bd --help
+# Quick install (macOS/Linux)
+curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
+
+# Homebrew (macOS/Linux)
+brew tap steveyegge/beads && brew install bd
+
+# npm (for Claude Code Web / Node environments)
+npm install -g @beads/bd
+
+# Go install (if you have Go)
+go install github.com/steveyegge/beads/cmd/bd@latest
 ```
+
+Verify installation: `bd version`
 
 ## Initialize
 
@@ -39,12 +57,12 @@ The wizard will:
 
 ```bash
 # Create a few issues
-./bd create "Set up database" -p 1 -t task
-./bd create "Create API" -p 2 -t feature
-./bd create "Add authentication" -p 2 -t feature
+bd create "Set up database" -p 1 -t task
+bd create "Create API" -p 2 -t feature
+bd create "Add authentication" -p 2 -t feature
 
 # List them
-./bd list
+bd list
 ```
 
 **Note:** Issue IDs are hash-based (e.g., `bd-a1b2`, `bd-f14c`) to prevent collisions when multiple agents/branches work concurrently.
@@ -55,16 +73,16 @@ For large features, use hierarchical IDs to organize work:
 
 ```bash
 # Create epic (generates parent hash ID)
-./bd create "Auth System" -t epic -p 1
+bd create "Auth System" -t epic -p 1
 # Returns: bd-a3f8e9
 
 # Create child tasks (automatically get .1, .2, .3 suffixes)
-./bd create "Design login UI" -p 1       # bd-a3f8e9.1
-./bd create "Backend validation" -p 1    # bd-a3f8e9.2
-./bd create "Integration tests" -p 1     # bd-a3f8e9.3
+bd create "Design login UI" -p 1       # bd-a3f8e9.1
+bd create "Backend validation" -p 1    # bd-a3f8e9.2
+bd create "Integration tests" -p 1     # bd-a3f8e9.3
 
 # View hierarchy
-./bd dep tree bd-a3f8e9
+bd dep tree bd-a3f8e9
 ```
 
 Output:
@@ -81,13 +99,13 @@ Output:
 
 ```bash
 # API depends on database
-./bd dep add bd-2 bd-1
+bd dep add bd-2 bd-1
 
 # Auth depends on API
-./bd dep add bd-3 bd-2
+bd dep add bd-3 bd-2
 
 # View the tree
-./bd dep tree bd-3
+bd dep tree bd-3
 ```
 
 Output:
@@ -102,7 +120,7 @@ Output:
 ## Find Ready Work
 
 ```bash
-./bd ready
+bd ready
 ```
 
 Output:
@@ -118,13 +136,13 @@ Only bd-1 is ready because bd-2 and bd-3 are blocked!
 
 ```bash
 # Start working on bd-1
-./bd update bd-1 --status in_progress
+bd update bd-1 --status in_progress
 
 # Complete it
-./bd close bd-1 --reason "Database setup complete"
+bd close bd-1 --reason "Database setup complete"
 
 # Check ready work again
-./bd ready
+bd ready
 ```
 
 Now bd-2 is ready! 🎉
@@ -133,10 +151,10 @@ Now bd-2 is ready! 🎉
 
 ```bash
 # See blocked issues
-./bd blocked
+bd blocked
 
 # View statistics
-./bd stats
+bd stats
 ```
 
 ## Database Location
@@ -146,7 +164,7 @@ By default: `~/.beads/default.db`
 You can use project-specific databases:
 
 ```bash
-./bd --db ./my-project.db create "Task"
+bd --db ./my-project.db create "Task"
 ```
 
 ## Migrating Databases
@@ -155,19 +173,19 @@ After upgrading bd, use `bd migrate` to check for and migrate old database files
 
 ```bash
 # Inspect migration plan (AI agents)
-./bd migrate --inspect --json
+bd migrate --inspect --json
 
 # Check schema and config
-./bd info --schema --json
+bd info --schema --json
 
 # Preview migration changes
-./bd migrate --dry-run
+bd migrate --dry-run
 
 # Migrate old databases to beads.db
-./bd migrate
+bd migrate
 
 # Migrate and clean up old files
-./bd migrate --cleanup --yes
+bd migrate --cleanup --yes
 ```
 
 **AI agents:** Use `--inspect` to analyze migration safety before running. The system verifies required config keys and data integrity invariants.
@@ -253,11 +271,48 @@ bd --no-daemon ready
 
 See [DAEMON.md](DAEMON.md) for complete daemon management guide.
 
+## Setup AI Editor Integration
+
+After initializing, set up your AI editor to automatically use bd:
+
+```bash
+# Claude Code (global - recommended)
+bd setup claude
+
+# Claude Code (project only)
+bd setup claude --project
+
+# Cursor IDE
+bd setup cursor
+
+# Aider
+bd setup aider
+```
+
+**What this does:**
+- **Claude Code**: Installs SessionStart hooks that call `bd prime` to inject workflow context automatically
+- **Cursor**: Creates `.cursor/rules/beads.mdc` with bd workflow rules
+- **Aider**: Creates `.aider.conf.yml` with bd instructions
+
+**Verify setup:**
+```bash
+bd setup claude --check
+bd setup cursor --check
+bd setup aider --check
+```
+
+**Remove integration:**
+```bash
+bd setup claude --remove
+bd setup cursor --remove
+bd setup aider --remove
+```
+
 ## Next Steps
 
-- Add labels: `./bd create "Task" -l "backend,urgent"`
-- Filter ready work: `./bd ready --priority 1`
-- Search issues: `./bd list --status open`
-- Detect cycles: `./bd dep cycles`
+- Add labels: `bd create "Task" -l "backend,urgent"`
+- Filter ready work: `bd ready --priority 1`
+- Search issues: `bd list --status open`
+- Detect cycles: `bd dep cycles`
 
-See [README.md](README.md) for full documentation.
+See [README.md](../README.md) for full documentation.
