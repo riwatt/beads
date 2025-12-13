@@ -161,9 +161,11 @@ bd setup aider
 **That's it!** Your AI agent will now automatically use bd for issue tracking. No need to edit AGENTS.md manually.
 
 **What happens:**
-- `bd init` creates the `.beads/` directory, database, and git hooks
-- `bd setup` configures your AI editor to inject bd workflow context automatically
+- `bd init` creates the `.beads/` directory, database, and **git hooks** (for automatic database sync)
+- `bd setup` installs **editor hooks** (for injecting bd context into your AI agent)
 - Next time your agent starts, it knows how to use bd
+
+> **Note:** `bd init` installs git hooks (pre-commit, post-merge) for database syncing. `bd setup` installs editor-specific hooks/rules for AI context injection. These are complementary.
 
 **Alternative (manual setup):** If you prefer not to use `bd setup`, you can still use `bd onboard` to get instructions for manual AGENTS.md configuration.
 
