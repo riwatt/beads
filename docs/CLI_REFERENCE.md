@@ -383,7 +383,7 @@ bd init --force
 - `--branch <name>`: Commit issue updates to separate branch (for protected main branches)
 - `--stealth`: Configure global settings for invisible local-only usage
 
-**See also:** [README.md - Step 1: Install](../README.md#step-1-install-humans-bd-init)
+**See also:** [README.md - Step 1: Initialize](../README.md#step-1-initialize-humans-bd-init)
 
 ### Onboard AI Agents - `bd onboard`
 
