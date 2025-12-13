@@ -13,6 +13,9 @@
 
 **Give your coding agent a memory upgrade**
 
+> **This README is for humans.** You set up beads once, then your AI agent uses it.
+> AI agents: see [AGENTS.md](AGENTS.md) for your workflow guide.
+
 > ## 🎉 **v0.20.1: Multi-Worker Support Unlocked!** 🎉
 >
 > **Hash-based IDs eliminate merge conflicts and collision issues!**
@@ -127,7 +130,9 @@ For full, platform-specific instructions (Windows, Arch Linux, manual builds, ID
 
 ## Quick Start
 
-### For Humans
+### For Humans (Project Setup)
+
+> **This section is for humans** setting up beads in a project. AI agents should skip to "For AI Agents" below.
 
 Beads is designed for **AI coding agents** to use on your behalf. Setup takes 30 seconds:
 
@@ -151,6 +156,9 @@ bd init --branch beads-metadata
 # - Prompt to install git hooks (recommended: say yes)
 # - Prompt to configure git merge driver (recommended: say yes)
 # - Auto-start daemon for sync
+
+# (Optional) Configure your AI editor for better integration:
+bd setup claude   # or: bd setup cursor, bd setup aider
 
 # Then tell your agent about bd:
 echo -e "\nBEFORE ANYTHING ELSE: run 'bd onboard' and follow the instructions" >> AGENTS.md
@@ -817,7 +825,8 @@ For advanced usage, see:
 
 ## Documentation
 
-- **[README.md](README.md)** - You are here! Core features and quick start
+- **[README.md](README.md)** - You are here (for humans setting up beads)
+- **[AGENTS.md](AGENTS.md)** - For AI agents using beads
 - **[docs/INSTALLING.md](docs/INSTALLING.md)** - Complete installation guide for all platforms
 - **[docs/QUICKSTART.md](docs/QUICKSTART.md)** - Interactive tutorial (`bd quickstart`)
 - **[docs/AGENT_MAIL_QUICKSTART.md](docs/AGENT_MAIL_QUICKSTART.md)** - 5-minute Agent Mail setup guide
