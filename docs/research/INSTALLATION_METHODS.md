@@ -1,6 +1,6 @@
 # Research: Beads Installation & Initialization Methods
 
-This document catalogs all the different ways end users can install and initialize the beads (`bd`) issue tracker.
+This document catalogs all the different ways a new user can install the beads (`bd`) issue tracker and initialize it for a project.
 
 ---
 
@@ -239,28 +239,6 @@ echo ".beads/beads.jsonl merge=beads" >> .gitattributes
 
 ---
 
-### 2.5 Importing Existing Issues
-
-#### On Clone (automatic)
-```bash
-bd init  # Imports existing issues from .beads/issues.jsonl
-```
-
-#### Manual Import
-```bash
-bd import -i issues.jsonl
-```
-
-#### Orphan Handling Options
-```bash
-bd import -i issues.jsonl --orphan-handling allow      # Default, most permissive
-bd import -i issues.jsonl --orphan-handling resurrect  # Recreate deleted parents
-bd import -i issues.jsonl --orphan-handling skip       # Skip orphans
-bd import -i issues.jsonl --orphan-handling strict     # Fail on missing parent
-```
-
----
-
 ## Part 3: IDE/Editor Integrations
 
 ### 3.1 CLI + Hooks (Recommended)
@@ -324,24 +302,7 @@ When agent runs `bd onboard`, it will:
 
 ---
 
-## Part 5: Database Migration
-
-### 5.1 Schema Migration
-```bash
-bd migrate --dry-run  # Preview
-bd migrate            # Migrate
-bd migrate --cleanup --yes  # Migrate and clean old files
-```
-
-### 5.2 AI-Supervised Migration
-```bash
-bd migrate --inspect --json  # Analysis for AI agents
-bd info --schema --json      # Check schema state
-```
-
----
-
-## Part 6: Verification & Health Check
+## Part 5: Verification
 
 ```bash
 bd version   # Check version
@@ -352,7 +313,7 @@ bd info      # Show database path and daemon status
 
 ---
 
-## Part 7: System Requirements
+## Part 6: System Requirements
 
 ### Linux
 - **Requires glibc 2.32+** (Ubuntu 22.04+, Debian 11+, RHEL 9+)
@@ -369,7 +330,7 @@ bd info      # Show database path and daemon status
 
 ---
 
-## Summary Table
+## Summary Table: Installation Methods
 
 | Method | Platform | Complexity | Best For |
 |--------|----------|------------|----------|
@@ -385,7 +346,7 @@ bd info      # Show database path and daemon status
 
 ---
 
-## Initialization Modes Summary
+## Summary Table: Initialization Modes
 
 | Mode | Command | Use Case |
 |------|---------|----------|
