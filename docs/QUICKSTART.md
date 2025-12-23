@@ -4,36 +4,79 @@ Get up and running with Beads in 2 minutes.
 
 ## Installation
 
+**Quick install (macOS/Linux):**
 ```bash
-cd ~/src/beads
-go build -o bd ./cmd/bd
-./bd --help
+curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
 ```
 
-## Initialize
+**Homebrew:**
+```bash
+brew tap steveyegge/beads
+brew install bd
+```
+
+**npm (Node.js/Claude Code for Web):**
+```bash
+npm install -g @beads/bd
+```
+
+See [INSTALLING.md](INSTALLING.md) for all installation options.
+
+## Setup (Three Commands)
+
+Beads has three setup commands that serve different purposes:
+
+### 1. Initialize the Project (Required)
 
 First time in a repository:
 
 ```bash
-# Basic setup
+# For humans (interactive prompts)
 bd init
 
-# OSS contributor (fork workflow with separate planning repo)
-bd init --contributor
+# For AI agents (non-interactive)
+bd init --quiet
 
-# Team member (branch workflow for collaboration)
-bd init --team
-
-# Protected main branch (GitHub/GitLab)
-bd init --branch beads-metadata
+# Special workflows:
+bd init --contributor  # OSS contributor (fork workflow)
+bd init --team         # Team member (branch workflow)
+bd init --branch beads-metadata  # Protected main branch
 ```
 
-The wizard will:
-- Create `.beads/` directory and database
-- Import existing issues from git (if any)
-- Prompt to install git hooks (recommended)
-- Prompt to configure git merge driver (recommended)
-- Auto-start daemon for sync
+This creates:
+- `.beads/` directory and database
+- Imports existing issues from git (if any)
+- Installs git hooks (automatically with `--quiet`)
+- Configures git merge driver
+- Starts daemon for auto-sync
+
+### 2. Setup AI Documentation (Recommended)
+
+After initialization, integrate bd into your AI agent documentation:
+
+```bash
+bd onboard
+# Follow the instructions to update AGENTS.md
+```
+
+This provides instructions for:
+- Adding bd workflow to `AGENTS.md`
+- Creating `.github/copilot-instructions.md` (GitHub Copilot)
+- Updating `CLAUDE.md` if present
+
+### 3. Setup Editor Integration (Optional)
+
+For automatic context injection in your AI editor:
+
+```bash
+bd setup claude    # Claude Code hooks (SessionStart/PreCompact)
+bd setup cursor    # Cursor IDE rules  
+bd setup aider     # Aider configuration
+```
+
+**This is optional** - bd works without editor-specific setup.
+
+**For detailed explanation, see [SETUP.md](SETUP.md).**
 
 ## Your First Issues
 

@@ -51,9 +51,13 @@ bd info  # Shows warnings if hooks are outdated
 
 **Related:** See GitHub Discussion #239 for background on agent upgrade workflows.
 
-## Human Setup vs Agent Usage
+## Setup Commands for AI Agents
 
-**IMPORTANT:** If you need to initialize bd, use the `--quiet` flag:
+There are **three setup commands** in bd. Here's when to use each:
+
+### 1. `bd init` - Initialize Project (Required)
+
+**When:** You encounter "database not found" or `.beads/` directory doesn't exist.
 
 ```bash
 bd init --quiet  # Non-interactive, auto-installs git hooks, no prompts
@@ -68,7 +72,33 @@ bd init --quiet  # Non-interactive, auto-installs git hooks, no prompts
 
 **If the human already initialized:** Just use bd normally with `bd create`, `bd ready`, `bd update`, `bd close`, etc.
 
-**If you see "database not found":** Run `bd init --quiet` yourself, or ask the human to run `bd init`.
+### 2. `bd onboard` - Generate AI Documentation (Recommended)
+
+**When:** After running `bd init`, to integrate bd workflow into project documentation.
+
+```bash
+bd onboard
+# Follow the instructions to update AGENTS.md and create .github/copilot-instructions.md
+```
+
+This provides instructions for:
+- Adding bd workflow to AGENTS.md
+- Creating .github/copilot-instructions.md (for GitHub Copilot)
+- Updating CLAUDE.md if present
+
+### 3. `bd setup` - AI Editor Integration (Optional)
+
+**When:** For automatic context injection in specific AI editors (Claude Code, Cursor, Aider).
+
+```bash
+bd setup claude    # If using Claude Code
+bd setup cursor    # If using Cursor IDE
+bd setup aider     # If using Aider
+```
+
+This is **optional** - bd works without editor-specific setup. Only run if the user asks for it or if you're using Claude Code and want automatic context injection.
+
+**See [docs/SETUP.md](docs/SETUP.md) for detailed explanation of all three commands.**
 
 ## Issue Tracking
 

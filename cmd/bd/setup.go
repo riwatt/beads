@@ -14,8 +14,23 @@ var (
 
 var setupCmd = &cobra.Command{
 	Use:   "setup",
-	Short: "Setup integration with AI editors",
-	Long:  `Setup integration files for AI editors like Claude Code, Cursor, and Aider.`,
+	Short: "Setup AI editor integration (optional)",
+	Long: `Setup integration files for AI editors like Claude Code, Cursor, and Aider.
+
+WHEN TO USE THIS:
+  • AFTER running 'bd init' and 'bd onboard'
+  • To configure automatic bd context injection in your AI editor
+  • This is OPTIONAL - bd works without editor-specific setup
+
+AVAILABLE EDITORS:
+  bd setup claude   # Claude Code hooks (SessionStart/PreCompact)
+  bd setup cursor   # Cursor IDE rules
+  bd setup aider    # Aider configuration
+
+WHY USE SETUP:
+  • Automatic context injection (reduces manual work)
+  • Editor-specific enhancements (slash commands, etc.)
+  • Streamlined workflow for your preferred editor`,
 }
 
 var setupCursorCmd = &cobra.Command{
