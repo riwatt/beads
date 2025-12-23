@@ -1,6 +1,13 @@
 # Installing bd
 
+**Audience:** End-users who want to install Beads
+
 Complete installation guide for all platforms.
+
+> **📚 Next steps after installation:**
+> - **[USER_GUIDE.md](USER_GUIDE.md)** - Complete guide for using Beads
+> - **[QUICKSTART.md](QUICKSTART.md)** - 2-minute tutorial
+> - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues
 
 ## Quick Install (Recommended)
 

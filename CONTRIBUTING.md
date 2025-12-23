@@ -2,6 +2,10 @@
 
 Thank you for your interest in contributing to bd! This document provides guidelines and instructions for contributing.
 
+> **📖 For complete development instructions**, see **[docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)**
+>
+> This file provides a quick overview. For detailed setup, testing, and development procedures, see the Developer Guide.
+
 ## Development Setup
 
 ### Prerequisites
@@ -11,6 +15,10 @@ Thank you for your interest in contributing to bd! This document provides guidel
 - (Optional) golangci-lint for local linting
 
 ### Getting Started
+
+For complete setup instructions, see [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md#development-setup).
+
+**Quick start:**
 
 ```bash
 # Clone the repository
@@ -285,6 +293,23 @@ dlv debug ./cmd/bd -- create "Test issue"
 - Check existing [issues](https://github.com/steveyegge/beads/issues)
 - Open a new issue for questions
 - Review [README.md](README.md) and other documentation
+
+## Related Documentation
+
+**For developers contributing to Beads:**
+- **[docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)** - Complete development guide
+- **[AGENT_INSTRUCTIONS.md](AGENT_INSTRUCTIONS.md)** - Detailed development procedures
+- **[docs/TESTING.md](docs/TESTING.md)** - Testing infrastructure
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - System architecture
+- **[docs/LINTING.md](docs/LINTING.md)** - Linter configuration
+
+**For end-users:**
+- **[docs/USER_GUIDE.md](docs/USER_GUIDE.md)** - How to use Beads
+- **[docs/INSTALLING.md](docs/INSTALLING.md)** - Installation guide
+- **[docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md)** - Command reference
+
+**Browse all documentation:**
+- **[docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)** - Complete documentation index
 
 ## License
 

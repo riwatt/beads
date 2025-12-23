@@ -1,6 +1,13 @@
 # Multi-Repo Migration Guide
 
+**Audience:** Team leads and DevOps engineers
+
 This guide helps you adopt beads' multi-repo workflow for OSS contributions, team collaboration, and multi-phase development.
+
+> **📚 Prerequisites:**
+> - Understanding of Beads basics ([USER_GUIDE.md](USER_GUIDE.md))
+> - Git workflow knowledge
+> - Multi-repository project structure
 
 ## Quick Start
 

@@ -1,6 +1,10 @@
 # Advanced bd Features
 
+**Audience:** Power users and advanced use cases
+
 This guide covers advanced features for power users and specific use cases.
+
+> **📚 New to Beads?** Start with [USER_GUIDE.md](USER_GUIDE.md) for basics.
 
 ## Table of Contents
 

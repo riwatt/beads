@@ -4,6 +4,12 @@
 >
 > This file provides a quick overview and reference. For in-depth operational details (development, testing, releases, git workflow), consult the detailed instructions.
 
+> **📚 Documentation Guide:**
+> - **Using Beads** (end-users): [docs/USER_GUIDE.md](docs/USER_GUIDE.md)
+> - **Contributing to Beads** (developers): [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
+> - **This file** (AI agents): Instructions for AI assistants working on Beads
+> - **Full index**: [docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)
+
 ## Project Overview
 
 This is **beads** (command: `bd`), an issue tracker designed for AI-supervised coding workflows. We dogfood our own tool!

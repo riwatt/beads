@@ -1,6 +1,13 @@
 # Extending bd with Custom Tables
 
+**Audience:** Advanced users and integration developers
+
 bd is designed to be extended by applications that need more than basic issue tracking. The recommended pattern is to add your own tables to the same SQLite database that bd uses.
+
+> **📚 Prerequisites:**
+> - Familiarity with SQLite
+> - Understanding of Beads basics ([USER_GUIDE.md](USER_GUIDE.md))
+> - Knowledge of Go (for custom tools)
 
 ## Philosophy
 

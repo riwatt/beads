@@ -2,6 +2,12 @@
 
 **For project overview and quick start, see [AGENTS.md](AGENTS.md)**
 
+> **📚 Documentation Guide:**
+> - **Using Beads** (end-users): [docs/USER_GUIDE.md](docs/USER_GUIDE.md)
+> - **Contributing to Beads** (developers): [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
+> - **This file** (AI agents): Detailed development procedures
+> - **Full index**: [docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)
+
 This document contains detailed operational instructions for AI agents working on beads development, testing, and releases.
 
 ## Development Guidelines
